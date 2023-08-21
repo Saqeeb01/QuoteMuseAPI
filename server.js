@@ -4,18 +4,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const Quote = require('./models/quotes'); // Adjust the path as needed
 
-
-// Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/quotemusedb', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+const uri = process.env.MONGODB_URI;
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => {
   console.log('Connected to MongoDB');
 })
 .catch(error => {
   console.error('Error connecting to MongoDB:', error);
 });
+
 
 
 // GET all quotes

@@ -14,7 +14,9 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     });
 
 
-
+app.get('/', (req, res) => {
+  res.send('Welcome to the Quote API! Use /quotes for all quotes, /quotes/movies for movie quotes, and /quotes/books for book quotes.');
+});
 
 // GET all quotes
 app.get('/quotes', async (req, res) => {

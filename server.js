@@ -15,8 +15,19 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the Quote API! Use /quotes for all quotes, /quotes/movies for movie quotes, and /quotes/books for book quotes.');
+  const welcomeMessage = {
+    message: 'Welcome to the Quote API!',
+    endpoints: {
+      allQuotes: '/quotes',
+      movieQuotes: '/quotes/movies',
+      bookQuotes: '/quotes/books'
+    }
+  };
+  
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.stringify(welcomeMessage, null, 2)); // The third argument (2) is for pretty-printing with 2 spaces indentation
 });
+
 
 // GET all quotes
 app.get('/quotes', async (req, res) => {

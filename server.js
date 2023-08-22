@@ -4,14 +4,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const Quote = require('./models/quotes'); // Adjust the path as needed
 
-const uri = process.env.MONGODB_URI;
+const uri = 'mongodb+srv://talikotisaqib257:xRS2j7JFU57wvpgq@quotemuseapi.mdmptds.mongodb.net/';
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(() => {
-  console.log('Connected to MongoDB');
-})
-.catch(error => {
-  console.error('Error connecting to MongoDB:', error);
-});
+    .then(() => {
+        console.log('Connected to MongoDB Atlas');
+    })
+    .catch(error => {
+        console.error('Error connecting to MongoDB Atlas:', error);
+    });
+
 
 
 

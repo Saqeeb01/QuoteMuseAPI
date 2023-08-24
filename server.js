@@ -16,7 +16,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.get('/', (req, res) => {
   const welcomeMessage = {
-    message: 'Welcome to the Quote API!',
+    message: 'Welcome to the QuoteMuse API!',
     endpoints: {
       allQuotes: '/quotes',
       movieQuotes: '/quotes/movies',
